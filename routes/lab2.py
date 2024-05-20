@@ -7,10 +7,11 @@ from fastapi import APIRouter
 from models import schemas
 from fastapi import status
 from fastapi.responses import JSONResponse
+from config import REDIS_HOST, REDIS_PORT, REDIS_DB
 
 
 router = APIRouter()
-r = redis.Redis(host='localhost', port=6379, db=0)
+r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=REDIS_DB)
 
 with open('redis-script.lua', 'r') as file:
     script = file.read()
