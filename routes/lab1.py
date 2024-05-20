@@ -20,7 +20,7 @@ async def generate_users(count: int):
 @router.post("/generate/books/{count}")
 async def generate_books(count: int):
     for i in range(count):
-        api.add_random_book()
+        api_lab1.add_random_book()
     return JSONResponse(status_code=status.HTTP_200_OK, content="Книги созданы")
 
 
@@ -77,7 +77,7 @@ async def get_book(title: str):
     return res
 
 
-@router.patch("/user/add_book")
+@router.patch("/user/book")
 async def add_books_to_user(books_id: schemas.List[str], email: str):
     user = api_lab1.get_user(email)
     if user is None:
