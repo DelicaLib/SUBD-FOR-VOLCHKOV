@@ -52,7 +52,7 @@ local function checkSessionActivity(sessionId)
         local jsonString = cjson.encode(result)
         return jsonString
     else
-        return "Session not found"
+        return cjson.encode("Session not found")
     end
 end
 

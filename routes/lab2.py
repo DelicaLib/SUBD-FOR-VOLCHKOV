@@ -51,7 +51,7 @@ async def stop_session(session_id: str):
     return JSONResponse(status_code=status.HTTP_200_OK, content="Сессия удалена")
 
 
-@router.get("/session/{session_id}", response_model=schemas.SessionNoTime)
+@router.get("/session/{session_id}")
 async def get_session(session_id: str):
     result = r.evalsha(script_sha, 2,
                        "CHECK", session_id)
