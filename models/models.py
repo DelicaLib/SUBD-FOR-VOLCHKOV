@@ -12,7 +12,7 @@ class User:
 
     def __init__(self, username: str,
                  email: str, password: str,
-                 books_in_library: List[ObjectId], id: Optional[str]):
+                 books_in_library: List[ObjectId], id: Optional[str] = None):
         self.username = username
         self.email = email
         self.password = password

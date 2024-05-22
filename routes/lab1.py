@@ -67,7 +67,7 @@ async def new_book(book_data: schemas.New_Book):
 @router.get("/book/{title}", response_model=schemas.List[schemas.Book])
 async def get_book(title: str):
     found_books = api_lab1.get_book(title)
-    if found_books is None:
+    if len(found_books) == 0:
         return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content="Книги не найдены")
     res = []
     for i in found_books:
